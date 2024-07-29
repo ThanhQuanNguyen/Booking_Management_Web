@@ -18,8 +18,8 @@ Tools used: Vscode, Python, HTML, SQLite. Make sure you have every tools install
     - account 1: username = managerTom123, password = manager1
     - account 2: username = managerJim234, password = manager2
 10. When you login sucessfully, there will be 3 buttons existed: __Data Overview__, __Room Overview__, __Log Out__.
-11. If you click on __Data Overview__, there will be a data table and a pie chart.
-12. If you click on __Room Overview__, there will be a data table and a bar chart.
+11. If you click on __Data Overview__, there will be a data table and a pie chart (it will take a bit to load).
+12. If you click on __Room Overview__, there will be a data table and a bar chart (it will take a bit to load).
 13. If you click on __Log Out__, the browser will move back to the login page.
 
 ## Activate the Dashboard with Dash and Matplotlib
