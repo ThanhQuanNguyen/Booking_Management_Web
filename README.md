@@ -26,4 +26,4 @@ Tools used: Vscode, Python, HTML, SQLite. Make sure you have every tools install
 14. Make sure you keep the flask api running while the Dashboard is activated.
 15. Open the new terminal, type __"python dashboard.py"__ to activate the dashboard.
 16. The dashboard will be opened on the Browser. There will be the dropdown list on the dashboard, which will make the bar chart change depended on what you selected.
-17. When you have everything done, __ctrl+C__ on every terminal. When want to open everything again, make sure to __"flask db_drop"__ first then do everything again from 1st step.
+17. When you have everything done, __ctrl+C__ on every terminal. When want to open everything again, make sure to __"flask db_drop"__ first then do everything again from 2nd step.
