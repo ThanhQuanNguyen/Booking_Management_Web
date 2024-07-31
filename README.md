@@ -4,7 +4,7 @@
 Tools used: Vscode, Python, HTML, SQLite. Make sure you have every tools installed before installing and running FLaskAPI code folder.
 
 ## Activate ETL and SQLite Database
-1. Use __"pip3 install - r equirement.txt"__ to install all the necessary packages.
+1. Use __"pip3 install - r requirement.txt"__ to install all the necessary packages.
 2. Type __"flask db_create"__ into the Vscode Terminal to create database. If it somehow does not work, make sure that there is __sqlite__ installed on your local device. Then __"flask db_drop"__ to drop the databse and __"flask db_create"__ again.
 3. Type __"python run.py"__ to start the ETL process. Wait until all the successful annoucements exists.
 4. Open __sqlite__ . Go "Open database", click on __booking.db__ to check if the data was created successfully.
