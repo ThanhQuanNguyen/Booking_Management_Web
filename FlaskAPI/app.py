@@ -34,11 +34,57 @@ def drop_database():
     print('Dropping database successfully')
 
 # Initialize the FLASK command to add new records into the database    
-
+@app.cli.command('db_seed')
+def db_seed():
+    manager1 = user_account(username = 'managerTom123',
+                            password = 'manager1')
+    
+    manager2 = user_account(username = 'managerJim234',
+                            password = 'manager2')
+    db.session.add(manager1)
+    db.session.add(manager2)
+    db.session.commit()
+    print('Seeding data successfully!')
 
 # The first endpoint of the webpage
 @app.route("/")
+def saysomething():
+    return render_template('first_endpoint.html')
 
+# The /login endpoint of the webpage
+@app.route('/login', methods =['GET','POST'])
+def login():
+    if request.method == 'GET':
+        return render_template('login.html')
+    elif request.method == 'POST': 
+        login_username = request.form['username']
+        login_password = request.form['password']
+    
+        test = user_account.query.filter_by(username = login_username, password = login_password).first()
+        if test:
+            access_token = create_access_token(identity= login_username)
+            return jsonify(message = 'Login successfully!', access_token = access_token)
+        else:
+            return jsonify(message ='The username or password does not exist. Please try again')
+
+# The /home endpoint of the webpage
+@app.route('/home', methods =['GET'])
+def home_page():
+    return render_template('home_page.html')
+
+# The /data_overview endpoint of the webpage
+@app.route('/data_overview', methods =['GET'])
+def data_overview():
+    df = create_data()
+    plot_url = generate_plot1()
+    return render_template('data.html', plot_url = plot_url , tables=[df.to_html(classes='dataframe', index=False)], titles=df.columns.values)
+
+# The /room_overview endpoint of the webpage
+@app.route('/room_overview', methods =['GET'])
+def room_overview():
+    df = roomtype_overview()
+    plot_url = generated_plot2()
+    return render_template('room_data.html', plot_url= plot_url, tables=[df.to_html(classes='dataframe', index=False)], titles=df.columns.values)
 
 @app.route('/dashboard_data', methods =['GET'])
 def dashboard_data():
