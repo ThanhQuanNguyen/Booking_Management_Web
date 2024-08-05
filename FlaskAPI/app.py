@@ -40,13 +40,6 @@ def drop_database():
 @app.route("/")
 
 
-# The /room_overview endpoint of the webpage
-@app.route('/room_overview', methods =['GET'])
-def room_overview():
-    df = roomtype_overview()
-    plot_url = generated_plot2()
-    return render_template('room_data.html', plot_url= plot_url, tables=[df.to_html(classes='dataframe', index=False)], titles=df.columns.values)
-
 @app.route('/dashboard_data', methods =['GET'])
 def dashboard_data():
     conn = sqlite3.connect('booking.db')
